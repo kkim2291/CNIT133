@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!-- Homework assignment for CNIT 133, Kyung Bae Kim, 01/27/2018 -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Creating CNIT 133 homepage">
+<title>CNIT 133 Homework Page</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<style>
+
+</style>
+
+<body>
+
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+    <a href="./index.html" class="w3-bar-item w3-button"><b>CNIT 133</b> Kyung Bae Kim</a>    
+        <div class="w3-right w3-hide-small">      
+        <a href="./index.html" class="w3-bar-item w3-button">HW1</a>
+        <a href="./hw2.html" class="w3-bar-item w3-button">HW2</a>
+        <a href="./hw3.html" class="w3-bar-item w3-button">HW3</a>
+        <a href="./hw4.html" class="w3-bar-item w3-button">HW4</a>
+        <a href="./hw5.html" class="w3-bar-item w3-button">HW5</a>
+        <a href="./hw6.html" class="w3-bar-item w3-button">HW6</a>
+        <a href="./hw7.html" class="w3-bar-item w3-button">HW7</a>
+        <a href="./hw8.html" class="w3-bar-item w3-button">HW8</a>      
+    </div>
+  </div>
+</div>
+
+
+<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+  <img class="w3-image" src="images/wall2.png" alt="CodingIllustration" width="1500">
+  <div class="w3-display-middle w3-margin-top w3-center">
+  </div>
+</header>
+
+  <div class="w3-container w3-padding-32">
+  <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">HW2 - Part 2: Input and Display Numbers</h3>
+  <ul> 
+<li><a href="./hw2_1.html">Part 1 - Display Text</a></li> 
+<li><a href="./hw2_2.html">Part 2 - Input and Display Numbers</a></li> 
+<li><a href="./hw2_3.html">Part 3 - Input and Count Numbers</a></li> 
+<li><a href="./hw2_4.html">Part 4 - Calcualte Numbers</a></li> 
+<li><a href="./hw2_5.html">Part 5 - Extra Credit</a></li> 
+</ul>
+  <p>Create a webpage that contains a script that inputs three integers via form text boxes and displays the sum, average, and product of the three integers, and the smallest and largest of the three integers. Your results should be displayed using alerts or a form textarea or a div element.</p>
+
+<script>
+//declare and initialize variables
+var int1; 
+var int2;
+var int3;
+var intSum;
+var intAvg;
+var intPro;
+var intSmall;
+var intLarge;
+
+function calculator() {
+			// a block of code designed to perform calculation
+			// returns the element that has the ID attribute with the specified value.
+            int1 = document.getElementById("int1").value;
+			int2 = document.getElementById("int2").value;
+			int3 = document.getElementById("int3").value;        
+
+            //convertion
+			s1 = parseInt(int1);
+			s2 = parseInt(int2);
+			s3 = parseInt(int3);
+            
+			//math fomula for sum, average, product and other  	
+			intSum = s1 + s2 + s3;
+			intAvg = (intSum / 3);
+			intPro = s1 * s2 * s3;
+            intSmall = Math.min(s1, s2, s3);
+            intLarge = Math.max(s1, s2, s3);
+
+			//Display the results
+			document.getElementById("results").value =
+            ("The inputs: " + s1 + ", " + s2 + ", " + s3 + 
+					"\nThe smallest integer: " + intSmall + 
+					"\nThe largest integer: " + intLarge + 
+					"\nThe sum of the integers: " + intSum + 
+					"\nThe average of the integers: " + intAvg +
+					"\nThe product of the integers: " + intPro )
+		}
+    function resetAll(){
+            // a block of code designed to clear the form
+            document.frm.reset();
+        }    
+</script>
+                 <form name=frm>
+				<p>
+                    Type the first integer:
+					<input type="text" id="int1" size="12" autofocus>
+				</p>
+				<p>
+                    Type the second integer:
+					<input type="text" id="int2" size="12">
+				</p>
+				<p>
+                    Type the third integer:
+					<input type="text" id="int3" size="12">
+				</p>
+				<p>
+					<textarea id="results" cols="40" rows="12"></textarea>
+				</p>
+				<p>
+					<input type="button" value="Calculate" onclick="calculator()">
+					<input type="button" value="Clear" onclick="resetAll()">
+				</p>
+                 </form>
+</div>                
+
+<footer class="w3-center w3-black w3-padding-16">
+<p>&copy; 2020 <a href="mailto:kkim76@mail.ccsf.edu?Subject=Sent%20from%20CNIT133-JavaScript">Kyung Bae Kim</a>
+</footer> 
+
+</body>
+</html>

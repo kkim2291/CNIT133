@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<!-- Homework assignment for CNIT 133, Kyung Bae Kim, 02/09/2018 -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Creating CNIT 133 homepage">
+<title>CNIT 133 Homework Page</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+ <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+ <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+$(document).ready(function(){
+    $("#flip").click(function(){
+        $("#panel").slideToggle("slow");
+    });
+});
+ $( function() {
+    $( document ).tooltip();
+  } );
+  </script>
+<style>
+label {
+    display: inline-block;
+    }
+
+table {
+	
+	margin-bottom: 20px;
+	border: 1px #250352 solid;
+}
+th,td,tr {
+	padding: 1px;
+	border: 1px #250352 solid;
+}
+input {
+    text-align:right;
+}
+
+</style>
+</head>
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+    <a href="./index.html" class="w3-bar-item w3-button"><b>CNIT 133</b> Kyung Bae Kim</a>    
+        <div class="w3-right w3-hide-small">      
+        <a href="./index.html" class="w3-bar-item w3-button">HW1</a>
+        <a href="./hw2.html" class="w3-bar-item w3-button">HW2</a>
+        <a href="./hw3.html" class="w3-bar-item w3-button">HW3</a>
+        <a href="./hw4.html" class="w3-bar-item w3-button">HW4</a>
+        <a href="./hw5.html" class="w3-bar-item w3-button">HW5</a>
+        <a href="./hw6.html" class="w3-bar-item w3-button">HW6</a>
+        <a href="./hw7.html" class="w3-bar-item w3-button">HW7</a>
+        <a href="./hw8.html" class="w3-bar-item w3-button">HW8</a>      
+    </div>
+  </div>
+</div>
+
+<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+  <img class="w3-image" src="images/wall3.png" alt="CodingIllustration" width="1500">
+  <div class="w3-display-middle w3-margin-top w3-center">
+  </div>
+</header>
+
+  <div class="w3-container w3-padding-32">
+  <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">HW3 - Part 2: Calculate Sales</h3>
+  <ul> 
+<li><a href="./hw3_1.html">Part 1 - Calculate Final Grade</a></li> 
+<li><a href="./hw3_2.html">Part 2 - Calculate Sales</a></li> 
+<li><a href="./hw3_3.html">Part 3 - Temperature Conversions</a></li> 
+<li><a href="./hw3_4.html">Part 4 - Learn Multiplication</a></li> 
+</ul>
+<script>
+		function calculator()
+		{                     // declare var
+			var intItem1, intItem2, intItem3, intItem4;
+			var intPrice1, intPrice2, intPrice3, intPrice4;
+			var intTotal1, intTotal2, intTotal3, intTotal4;
+			var sum, totalEarning;
+			
+			//prices must initialize
+			intPrice1 = 239.99;
+			intPrice2 = 129.75;
+			intPrice3 = 99.95;
+			intPrice4 = 350.89;
+			intItem1 = document.getElementById("item1").value;
+			intItem2 = document.getElementById("item2").value;
+			intItem3 = document.getElementById("item3").value;
+			intItem4 = document.getElementById("item4").value;
+
+			if(isNaN(intItem1) || isNaN(intItem2) || isNaN(intItem3) || isNaN(intItem4))
+			{
+				document.getElementById("invalidNumber").innerHTML = "<p class='warning'>Invalid input.</p>";
+			}
+			else 
+			{
+				intItem1 = parseInt(intItem1, 10);
+				intItem2 = parseInt(intItem2, 10);
+				intItem3 = parseInt(intItem3, 10);
+				intItem4 = parseInt(intItem4, 10);
+				document.frm.sold1.value = intItem1;
+				document.frm.sold2.value = intItem2;
+				document.frm.sold3.value = intItem3;
+				document.frm.sold4.value = intItem4;
+				intTotal1 = intPrice1 * intItem1;
+				intTotal2 = intPrice2 * intItem2;
+				intTotal3 = intPrice3 * intItem3;
+				intTotal4 = intPrice4 * intItem4;
+				document.frm.total1.value = "$" + intTotal1.toFixed(2);
+				document.frm.total2.value = "$" + intTotal2.toFixed(2);
+				document.frm.total3.value = "$" + intTotal3.toFixed(2);
+				document.frm.total4.value = "$" + intTotal4.toFixed(2);
+
+				//calculation for sum
+				sum = (intTotal1 + intTotal2 + intTotal3 + intTotal4).toFixed(2);
+				//calculation for earning
+				totalEarning = (200 + sum * .09).toFixed(2); 
+				document.getElementById("totalSold").value = "$" + sum;
+				document.getElementById("earnings").value = "$" + totalEarning;
+			}
+
+		}
+function resetAll(){
+document.frm.reset();
+}  
+	</script>
+
+<div id="flip">Click to Show/Hide Instructions</div>
+<div id="panel">A large company pays its salespeople on a commission basis. The salespeople receive $200 per week, plus 9% of their gross sales for that week. For example, a salesperson who sells $5000 worth of merchandise in a week receives $200 plus 9% of $5000, or a total of $650. You have been supplied with a list of the items sold by each salesperson. The value of these items are as follows: 
+<br>
+<table style="width:15%">
+  <tr>
+    <th>Item</th>
+    <td>Value</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>239.99</td>    
+  </tr>
+   <tr>
+    <td>2</td>
+    <td>129.75</td>    
+  </tr>
+   <tr>
+    <td>3</td>
+    <td>99.95</td>  
+     <tr>
+    <td>4</td>
+    <td>350.89</td>    
+  </tr>
+</table>
+</div>	
+<div class="main">
+<form name=frm>
+<p><label for="name">Salesperson: </label><input id="name" title="Please make sure that the salesperson's name is spelled correctly."></p>
+
+					<table>
+						<tr>
+							<td colspan="2">Input the number of items <br> sold for each item:</td>
+						</tr>
+						<tr>
+							<td>Item 1:</td>
+							<td><input type="number" name="item1" id="item1"></td>
+						</tr>
+						<tr>
+							<td>Item 2:</td>
+							<td><input type="number" name="item2" id="item2"></td>
+						</tr>
+						<tr>
+							<td>Item 3:</td>
+							<td><input type="number" name="item3" id="item3"></td>
+						</tr>
+						<tr>
+							<td>Item 4:</td>
+							<td><input type="number" name="item4" id="item4"></td>
+						</tr>
+						<tr class="button">
+							<td colspan="2" class="extra-button">
+								
+<input type="button" value="Calculate" onclick="calculator()">
+								<input type="button" value="Clear" onclick="resetAll()">
+							</td>
+						</tr>
+					</table>
+
+					<div id="invalidNumber"></div>
+
+					<table>
+						<tr>
+							<th>Item #</th>
+							<th>Price</th>
+							<th>Number Sold</th>
+							<th>Total</th>
+						</tr>
+						<tr>
+							<td>Item 1:</td>
+							<td>$239.99</td>
+							<td><input type="text" name="sold1" id="sold1" readonly></td>
+							<td><input type="text" name="total1" id="total1" readonly></td>
+						</tr>
+						<tr>
+							<td>Item 2:</td>
+							<td>$129.75</td>
+							<td><input type="text" name="sold2" id="sold2" readonly></td>
+							<td><input type="text" name="total2" id="total2" readonly></td>
+						</tr>
+						<tr>
+							<td>Item 3:</td>
+							<td>$99.95</td>
+							<td><input type="text" name="sold3" id="sold3" readonly></td>
+							<td><input type="text" name="total3" id="total3" readonly></td>
+						</tr>
+						<tr>
+							<td>Item 4:</td>
+							<td>$350.89</td>
+							<td><input type="text" name="sold4" id="sold4" readonly></td>
+							<td><input type="text" name="total4" id="total4" readonly></td>
+						</tr>
+						<tr>
+							<td colspan="3">Total Amount Sold:</td>
+							<td><input type="text" name="totalSold" id="totalSold" readonly></td>
+						</tr>
+						<tr>
+							<td colspan="3">Total Weekly Earnings:</td>
+							<td><input type="text" name="earnings" id="earnings" readonly></td>
+						</tr>
+					</table>
+
+				</form>
+				
+			</div>
+		</div>
+        <footer class="w3-center w3-black w3-padding-16">
+<p>&copy; 2020 <a href="mailto:kkim76@mail.ccsf.edu?Subject=Sent%20from%20CNIT133-JavaScript">Kyung Bae Kim</a>
+</footer> 
+
+	
+</body>
+</html>

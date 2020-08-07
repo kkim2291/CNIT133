@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!-- Homework assignment for CNIT 133, Kyung Bae Kim, 04/17/2018 -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Creating CNIT 133 homepage">
+<title>CNIT 133 Homework Page</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script>
+		$(document).ready(function(){
+    $("#flip").click(function(){
+        $("#panel").slideToggle("slow");
+    });
+});
+	</script>
+	<script>
+		function searchCharacter()
+		{
+			var text = document.getElementById("text").value;
+			var character = document.getElementById("character").value;
+			var count = 0;
+			if(text === "")
+			{
+				errorText();
+			}
+			else if(character === "")
+			{
+				errorCharacter();
+			}
+			else
+			{
+				for (var i = 0; i < text.length; i++)
+				{
+					if (character == text.charAt(i))
+					{
+						count++;
+					}
+				}
+
+				if(count === 0)
+				{
+					errorMsg(character);
+				}
+				else
+				{
+					document.getElementById("result").value = "The Character \'" + character + "\' appeared " + count + " time(s)."
+				}
+			}
+		}
+		function errorMsg(character)
+		{
+			var intText = "<html><head><title>Character Not Found</title>" + "<body><p>Character \'" + character + "\' was not found.</p>" + "<input type='button' value='Close Window' onclick='window.close()'></body></html>";
+
+			var errorWindow = window.open("","error","width=300,height=100,top=80,left=500");
+			errorWindow.focus();
+			errorWindow.document.write(intText);
+			errorWindow.document.close(); 
+		}
+		function errorText()
+		{
+			var intText = "<html><head><title>Character Not Found</title>" + "<body><p>No text</p>" + "<input type='button' value='Close Window' onclick='window.close()'></body></html>";
+
+			var errorWindow = window.open("","no_text","width=300,height=100,top=80,left=500");
+			errorWindow.focus();
+			errorWindow.document.write(intText);
+			errorWindow.document.close(); 
+		}
+		function errorCharacter()
+		{
+			var intText = "<html><head><title>Character Not Found</title>" + "<body><p>No character</p><input type='button' value='Close Window' onclick='window.close()'></body></html>";
+
+			var errorWindow = window.open("","no_character","width=300,height=100,top=80,left=500");
+			errorWindow.focus();
+			errorWindow.document.write(intText);
+			errorWindow.document.close(); 
+		}
+        function resetAll(){
+document.frm.reset();
+}  
+	</script>
+    <style>
+    form { 
+margin: 0 auto; 
+width:250px;
+}
+</style>
+</head>
+
+<body>
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+    <a href="./index.html" class="w3-bar-item w3-button"><b>CNIT 133</b> Kyung Bae Kim</a>    
+        <div class="w3-right w3-hide-small">      
+        <a href="./index.html" class="w3-bar-item w3-button">HW1</a>
+        <a href="./hw2.html" class="w3-bar-item w3-button">HW2</a>
+        <a href="./hw3.html" class="w3-bar-item w3-button">HW3</a>
+        <a href="./hw4.html" class="w3-bar-item w3-button">HW4</a>
+        <a href="./hw5.html" class="w3-bar-item w3-button">HW5</a>
+        <a href="./hw6.html" class="w3-bar-item w3-button">HW6</a>
+        <a href="./hw7.html" class="w3-bar-item w3-button">HW7</a>
+        <a href="./hw8.html" class="w3-bar-item w3-button">HW8</a>      
+    </div>
+  </div>
+</div>
+
+<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+  <img class="w3-image" src="images/wall6.png" alt="CodingIllustration" width="1500">
+  <div class="w3-display-middle w3-margin-top w3-center"> </div>
+</header>
+
+  <div class="w3-container w3-padding-32">
+  <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">HW6 - Part 2: String and charAt Method</h3>
+  <ul> 
+<li><a href="./hw6_1.html">Part 1 - Math Method</a></li> 
+<li><a href="./hw6_2.html">Part 2 - String and charAt Method</a></li> 
+<li><a href="./hw6_3.html">Part 3 - Time and Telephone number</a></li> 
+</ul>
+<div id="flip">Click to Show/Hide Instructions</div>
+<div id="panel">Create a webpage that contains a script using a form that allows the user to input several lines of text and a search character and uses the String method charAt to determine the number of occurrences of the search character within the text. Use a form textarea for the text and a form input box for the search character. If the search character is found within the text, display the number of occurrences of the search character in another form input box or a textarea. If the search character is not found within the text then display within a new window (using the window.open method), the message, 'Search character not found in text string!' along with the search character. Your new window should be a width of 300 pixels, height of 100 pixels, and should not obscure any of the main content already on the page.
+ <br> <br>
+</div>
+</div>
+				<form name="frm">
+					<p>Type the text:<br><br> <textarea id="text" rows="8" cols="30"></textarea></p>
+							<p>Type the Character: <br><br> <input type="text" id="character" size="2"></p>
+							<p>Result: <br><br> <textarea id="result" rows="3" cols="30"></textarea></p>
+         
+							<input type="button" value="Search" onclick="searchCharacter();">
+						    <input type="button" value="Clear" onclick="resetAll()">
+
+				</form>
+                <br><br>
+<footer class="w3-center w3-black w3-padding-16">
+<p>&copy; 2020 <a href="mailto:kkim76@mail.ccsf.edu?Subject=Sent%20from%20CNIT133-JavaScript">Kyung Bae Kim</a>
+</footer> 
+
+</body>
+</html>

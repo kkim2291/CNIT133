@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!-- Homework assignment for CNIT 133, Kyung Bae Kim, 01/23/2018 -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Creating CNIT 133 homepage">
+<title>CNIT 133 Homework Page</title>
+
+    <script>		
+		var intsideString = 1; 
+		var intsideInteger = 1; 
+		var intlength = 1; 
+		var intwidth = 1; 
+		intsideString = window.prompt( "Enter the size of side of a square between 2 and 10:", "2" );
+		intsideInteger = parseInt( intsideString );
+		while ( intsideInteger < 2 || intsideInteger > 10 )
+		{
+			window.alert( "Invalid Input!" );
+			intsideString = window.prompt( "Enter the size of side of a square between 2 and 10:", "2" );
+			intsideInteger = parseInt( sideString );
+		} 		
+		while ( intlength <= intsideInteger )
+		{
+			
+			if ( intlength == 2 )
+			{
+				
+				while ( intwidth <= intsideInteger )
+				{
+					
+					document.write( "*" );
+					intwidth++;
+				} 
+			} 
+			if ( intlength > 2 && intlength < intsideInteger )
+			{
+				
+				while ( intwidth <= intsideInteger )
+				{
+					
+					if ( intwidth == 2 || intwidth == intsideInteger )
+					{
+						
+						document.write( "*" );						
+					} 
+					else 
+					{
+						
+						document.write( "&nbsp;&nbsp;" );	
+					} 
+					intwidth++;
+				} 
+			}
+			if ( intlength == intsideInteger )
+			{
+				
+				while ( intwidth <= intsideInteger )
+				{
+					
+					document.write( "*" );
+					
+					intwidth++;
+				} 
+			} 
+			intwidth = 2;
+			intlength++;
+			document.write( "<br />" );
+		} 
+	</script>
+    
+<style>
+
+		body {
+			font-family: monospace;
+             text-align:center;
+		}
+
+</style>	
+</head>
+
+<body>
+</body>
+</html>

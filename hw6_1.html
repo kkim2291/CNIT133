@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<!-- Homework assignment for CNIT 133, Kyung Bae Kim, 04/17/2018 -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Creating CNIT 133 homepage">
+<title>CNIT 133 Homework Page</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script>
+		$(document).ready(function(){
+    $("#flip").click(function(){
+        $("#panel").slideToggle("slow");
+    });
+});
+	</script>
+	<script>
+		function rounding()
+		{
+			var number = document.getElementById("numInput").value;
+			var error = "Invalid Input";
+
+			if(isNaN(number) || number == "")
+			{
+				document.getElementById("error").innerHTML = error;
+				document.getElementById("result").value = "";
+			}
+			else
+			{
+				document.getElementById("error").innerHTML = "";
+				number = parseFloat(number);
+				document.getElementById("result").value =  "Inputted Number: " + number 
+				+ "\n\nRounded to:" + squareRootToRound(number)
+				+ "\nSquare root to: " + roundToInteger(number)
+                + "\nInteger: " + roundToInteger(number)
+				+ "\nTenths: " + roundToTenths(number) 
+				+ "\nHundredths: " + roundToHundredths(number) 
+				+ "\nThousandths: " + roundToThousandths(number);
+			}
+		}
+
+		function roundToInteger(number)
+		{
+			return Math.floor(number + .5);
+		}
+		function roundToTenths(number)
+		{
+			return Math.floor(number * 10 + .5)/10;
+		}
+		function roundToHundredths(number)
+		{
+			return Math.floor(number * 100 + .5)/100;
+		}
+		function roundToThousandths(number)
+		{
+			return Math.floor(number* 1000 + .5)/1000;
+        }
+        function squareRootToRound(number) {
+	       return (Math.sqrt(number).toFixed());
+}
+         function resetAll(){
+document.frm.reset();
+}  
+</script>
+    <style>
+    form { 
+margin: 0 auto; 
+width:250px;
+}
+</style>
+</head>
+<body>
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+    <a href="./index.html" class="w3-bar-item w3-button"><b>CNIT 133</b> Kyung Bae Kim</a>    
+        <div class="w3-right w3-hide-small">      
+        <a href="./index.html" class="w3-bar-item w3-button">HW1</a>
+        <a href="./hw2.html" class="w3-bar-item w3-button">HW2</a>
+        <a href="./hw3.html" class="w3-bar-item w3-button">HW3</a>
+        <a href="./hw4.html" class="w3-bar-item w3-button">HW4</a>
+        <a href="./hw5.html" class="w3-bar-item w3-button">HW5</a>
+        <a href="./hw6.html" class="w3-bar-item w3-button">HW6</a>
+        <a href="./hw7.html" class="w3-bar-item w3-button">HW7</a>
+        <a href="./hw8.html" class="w3-bar-item w3-button">HW8</a>      
+    </div>
+  </div>
+</div>
+
+<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+  <img class="w3-image" src="images/wall6.png" alt="CodingIllustration" width="1500">
+  <div class="w3-display-middle w3-margin-top w3-center"> </div>
+</header>
+
+  <div class="w3-container w3-padding-32">
+  <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">HW6 - Part 1: Math Method</h3>
+  <ul> 
+<li><a href="./hw6_1.html">Part 1 - Math Method</a></li> 
+<li><a href="./hw6_2.html">Part 2 - String and charAt Method</a></li> 
+<li><a href="./hw6_3.html">Part 3 - Time and Telephone number</a></li> 
+</ul>
+<div id="flip">Click to Show/Hide Instructions</div>
+<div id="panel">Math method round can be used to round a floating-point number to an integer. 
+
+For example,
+y = Math.round( x );  -  rounds x to the nearest integer and places it in y.
+
+Math method sqrt can be used to find the square root of a number.
+
+For example,
+y = Math.sqrt( x );   -  finds the square root of x and places it in y.
+
+Math method floor can be used to round a floating-point number to a specific decimal place. 
+
+For example,
+y = Math.floor( x * 10 + .5 ) / 10;   -  rounds x to the tenths position (the first position to the right of the decimal point) and places it in y.
+y = Math.floor( x * 100 + .5 ) / 100;  -  rounds x to the hundredths position (the second position to the right of the decimal point) and places it in y.
+
+Create a webpage that contains a script that has  a function that uses Math.round, Math.sqrt and Math.floor to:
+
+a) round the floating-point number to the nearest integer
+b) calculate the square root of the floating-point number and round it to an integer
+c) round the floating-point number to the nearest tenths position
+d) round the floating-point number to the nearest hunderdths position
+e) round the floating-point number to the nearest thousandths position
+ <br> <br>
+</div>
+</div>
+
+				<form name="frm">
+					<p>Enter the Number: <input type="text" name="num" id="numInput"><br></p>
+			
+						<textarea id="result" rows="8" cols="34"></textarea>
+					<br><br>
+					
+								<input type="button" value="Calculate" onclick="rounding();">                           
+								<input type="button" value="Clear" onclick="resetAll()">
+                                <br><br>
+						<textarea id="error" > </textarea>
+                        <br>
+			
+				</form>
+    <footer class="w3-center w3-black w3-padding-16">
+<p>&copy; 2020 <a href="mailto:kkim76@mail.ccsf.edu?Subject=Sent%20from%20CNIT133-JavaScript">Kyung Bae Kim</a>
+</footer> 
+	
+</body>
+</html>

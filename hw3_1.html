@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<!-- Homework assignment for CNIT 133, Kyung Bae Kim, 02/09/2018 -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Creating CNIT 133 homepage">
+<title>CNIT 133 Homework Page</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+</script>
+<script>
+$(document).ready(function(){
+    $("#flip").click(function(){
+        $("#panel").slideToggle("slow");
+    });
+});
+</script>
+<style>
+table, th, td {
+    border: 1px solid black;
+    
+}
+th, td {
+    
+    text-align: left;    
+}
+</style>
+</head>
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+    <a href="./index.html" class="w3-bar-item w3-button"><b>CNIT 133</b> Kyung Bae Kim</a>    
+        <div class="w3-right w3-hide-small">      
+        <a href="./index.html" class="w3-bar-item w3-button">HW1</a>
+        <a href="./hw2.html" class="w3-bar-item w3-button">HW2</a>
+        <a href="./hw3.html" class="w3-bar-item w3-button">HW3</a>
+        <a href="./hw4.html" class="w3-bar-item w3-button">HW4</a>
+        <a href="./hw5.html" class="w3-bar-item w3-button">HW5</a>
+        <a href="./hw6.html" class="w3-bar-item w3-button">HW6</a>
+        <a href="./hw7.html" class="w3-bar-item w3-button">HW7</a>
+        <a href="./hw8.html" class="w3-bar-item w3-button">HW8</a>      
+    </div>
+  </div>
+</div>
+
+<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+  <img class="w3-image" src="images/wall3.png" alt="CodingIllustration" width="1500">
+  <div class="w3-display-middle w3-margin-top w3-center">
+  </div>
+</header>
+
+  <div class="w3-container w3-padding-32">
+  <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">HW3 - Part 1: Calculate Final Grade</h3>
+  <ul> 
+<li><a href="./hw3_1.html">Part 1 - Calculate Final Grade</a></li> 
+<li><a href="./hw3_2.html">Part 2 - Input and Display Numbers</a></li> 
+<li><a href="./hw3_3.html">Part 3 - Temperature Conversions</a></li> 
+<li><a href="./hw3_4.html">Part 4 - Learn Multiplication</a></li> 
+</ul>
+
+<div id="flip">Click to Show/Hide Instructions</div>
+<div id="panel">Create a webpage that contains the heading, Student Grades, and inputs a student's homework average, mid-term exam score, final exam score, and ACR (all as integers). Create a script that checks for valid input, i.e., that the input is between 0-100. If all input is valid then calculate and display the student's final average according to the formula: 
+<br>final average = (.5 * hwAvg) + (.2 * midExam) + (.2 * finalExam) + (.1 * ACR)
+<br>Using form text boxes, display the student's final average (rounded to an integer) and final letter grade using the following: 
+<table style="width:15%">
+  <tr>
+    <td>90-100</td>
+    <td>A</td>
+  </tr>
+  <tr>
+    <td>80-89</td>
+    <td>B</td>    
+  </tr>
+   <tr>
+    <td>70-79</td>
+    <td>C</td>    
+  </tr>
+   <tr>
+    <td>60-69</td>
+    <td>D</td>  
+     <tr>
+    <td>0-59</td>
+    <td>F</td>    
+  </tr>
+</table>
+</div>
+
+<script>
+function calculate() {
+//declare and conversion
+	var hwAvg = parseInt(document.frm.hwAvg.value);
+	var midExam = parseInt(document.frm.midExam.value);
+	var finalExam = parseInt(document.frm.finalExam.value);
+	var ACR = parseInt(document.frm.ACR.value);
+	var finalAverage = Math.round((.5 * hwAvg) + (.2 * midExam) + (.2 * finalExam) + (.1 * ACR));
+	var finalGrade;
+	var inputValid = true;
+	
+	if(hwAvg < 0 || hwAvg > 100){
+		document.frm.grade.value = ("Please enter a value less than or equal to 100.");
+		inputValid = false;
+	}
+	if(midExam < 0 || midExam > 100){
+		document.frm.grade.value = ("Please enter a value less than or equal to 100.");
+		inputValid = false;
+	}
+	if(finalExam < 0 || finalExam > 100){
+		document.frm.grade.value = ("Please enter a value less than or equal to 100.");
+		inputValid = false;
+	}
+	if(ACR < 0 || ACR > 100){
+		document.frm.grade.value = ("Please enter a value less than or equal to 100.");
+		inputValid = false;
+	}
+	
+	// Calculate for final grade
+	if(finalAverage > 89){
+		finalGrade = "A";
+	} else if(finalAverage > 79){
+		finalGrade = "B";
+	} else if(finalAverage > 69){
+		finalGrade = "C";
+	} else if(finalAverage > 59){
+		finalGrade = "D";
+	} else if(finalAverage < 59){
+		finalGrade = "F";
+	}
+	
+	if(inputValid){
+		document.frm.grade.value = ("Final Average: " + finalAverage + "\nFinal Grade:  " + finalGrade + "\n");
+	}
+	
+	if((inputValid && finalGrade == "D")||(inputValid && finalGrade == "F")){
+		document.frm.grade.value = ("Final Average: " + finalAverage + "\nFinal Grade:  " + finalGrade+"\nStudent must retake the course!");
+		
+}	
+}
+</script>
+
+<form name="frm">
+ Homework Average: <input type="number" name="hwAvg"><br>
+ Midterm Average: <input type="number" name="midExam"><br>
+ Final Exam Score: <input type="number" name="finalExam"><br>
+ ACR Score: <input type="number" name="ACR"><br>
+ Final Grade: <textarea name="grade" rows="5" cols="30"></textarea><br>
+ <input type="button" onclick="calculate()" value="Submit">
+ <input type="reset" value="Clear">
+    </form>
+         
+    </div>
+  <footer class="w3-center w3-black w3-padding-16">
+<p>&copy; 2020 <a href="mailto:kkim76@mail.ccsf.edu?Subject=Sent%20from%20CNIT133-JavaScript">Kyung Bae Kim</a>
+</footer> 
+
+</body>
+</html>

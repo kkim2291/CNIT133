@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!-- Homework assignment for CNIT 133, Kyung Bae Kim, 05/11/2018 -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Creating CNIT 133 homepage">
+<title>CNIT 133 Homework Page</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
+    
+<script>
+function showHint(str) {
+  if (str.length == 0) {
+    document.getElementById("txtHint").innerHTML = "";
+    return;
+  } else {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("txtHint").innerHTML = this.responseText;
+      }
+    }
+    xmlhttp.open("GET", "gethint.php?q="+str, true);
+    xmlhttp.send();
+  }
+}
+</script>
+
+	<script>
+		$(document).ready(function(){
+    $("#flip").click(function(){
+        $("#panel").slideToggle("slow");
+    });
+});
+	</script>
+<style>
+    form{
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    </style>
+
+</head>
+    
+<body>
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+    <a href="./index.html" class="w3-bar-item w3-button"><b>CNIT 133</b> Kyung Bae Kim</a>    
+        <div class="w3-right w3-hide-small">      
+        <a href="./index.html" class="w3-bar-item w3-button">HW1</a>
+        <a href="./hw2.html" class="w3-bar-item w3-button">HW2</a>
+        <a href="./hw3.html" class="w3-bar-item w3-button">HW3</a>
+        <a href="./hw4.html" class="w3-bar-item w3-button">HW4</a>
+        <a href="./hw5.html" class="w3-bar-item w3-button">HW5</a>
+        <a href="./hw6.html" class="w3-bar-item w3-button">HW6</a>
+        <a href="./hw7.html" class="w3-bar-item w3-button">HW7</a>
+        <a href="./hw8.html" class="w3-bar-item w3-button">HW8</a>      
+    </div>
+  </div>
+</div>
+
+<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+  <img class="w3-image" src="images/wall8.png" alt="CodingIllustration" width="1500">
+  <div class="w3-display-middle w3-margin-top w3-center"> </div>
+</header>
+
+  <div class="w3-container w3-padding-32">
+  <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">HW8 - Part 1: Name List and Hint </h3>
+  <ul> 
+<li><a href="./hw8_1.html">Part 1 - Name List and Hint</a></li> 
+<li><a href="./hw8_2.html">Part 2 - Collects Data from the Server</a></li> 
+</ul>
+<div id="flip">Click to Show/Hide Instructions</div>
+<div id="panel">Recreate the 'gethint' Ajax example from W3Schools. Use the php file containing the hints and expand them to include several more names as hints.
+ <br>
+</div>
+</div>
+
+			<form name="frm">
+				First name: <input type="text" onkeyup="showHint(this.value)">
+                <p>Suggestions: <span id="txtHint"></span></p>
+			</form>
+          <br><br>
+    
+<footer class="w3-center w3-black w3-padding-16">
+<p>&copy; 2020 <a href="mailto:kkim76@mail.ccsf.edu?Subject=Sent%20from%20CNIT133-JavaScript">Kyung Bae Kim</a>
+</footer> 
+
+</body>
+</html>

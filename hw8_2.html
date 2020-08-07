@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!-- Homework assignment for CNIT 133, Kyung Bae Kim, 05/11/2018 -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Creating CNIT 133 homepage">
+<title>CNIT 133 Homework Page</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
+    
+<script>
+function ajaxFunction() {
+	var ajaxRequest; 
+	try {
+		ajaxRequest = new XMLHttpRequest();
+	} catch (e) {
+		try {
+			ajaxRequest = new ActiveXObject("Msxml2.XMLHTTP");
+		} catch (e) {
+			try {
+				ajaxRequest = new ActiveXObject("Microsoft.XMLHTTP");
+			} catch (e) {
+				alert("INVAILD");
+				return false;
+			}
+		}
+	}
+	
+	ajaxRequest.onreadystatechange = function () {
+		if (ajaxRequest.readyState == 4 && ajaxRequest.status == 200) {
+			var result = ajaxRequest.responseText;
+			var info = result.split('@');
+			document.getElementById("time").value = info[0];
+			document.getElementById("date").value = info[1];
+			document.getElementById("date1").value = info[2];
+		}
+	}
+
+
+	ajaxRequest.open("GET", "dateTime.php", true);
+	ajaxRequest.send(null);
+}
+
+</script>
+
+	<script>
+		$(document).ready(function(){
+    $("#flip").click(function(){
+        $("#panel").slideToggle("slow");
+    });
+});
+	</script>
+<style>
+    form{
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    </style>
+
+</head>
+    
+<body>
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+    <a href="./index.html" class="w3-bar-item w3-button"><b>CNIT 133</b> Kyung Bae Kim</a>    
+        <div class="w3-right w3-hide-small">      
+        <a href="./index.html" class="w3-bar-item w3-button">HW1</a>
+        <a href="./hw2.html" class="w3-bar-item w3-button">HW2</a>
+        <a href="./hw3.html" class="w3-bar-item w3-button">HW3</a>
+        <a href="./hw4.html" class="w3-bar-item w3-button">HW4</a>
+        <a href="./hw5.html" class="w3-bar-item w3-button">HW5</a>
+        <a href="./hw6.html" class="w3-bar-item w3-button">HW6</a>
+        <a href="./hw7.html" class="w3-bar-item w3-button">HW7</a>
+        <a href="./hw8.html" class="w3-bar-item w3-button">HW8</a>      
+    </div>
+  </div>
+</div>
+
+<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+  <img class="w3-image" src="images/wall8.png" alt="CodingIllustration" width="1500">
+  <div class="w3-display-middle w3-margin-top w3-center"> </div>
+</header>
+
+  <div class="w3-container w3-padding-32">
+  <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">HW8 - Part 2: Collects Data from the Server </h3>
+  <ul> 
+<li><a href="./hw8_1.html">Part 1 - Name List and Hint</a></li> 
+<li><a href="./hw8_2.html">Part 2 - Collects Data from the Server</a></li> 
+</ul>
+<div id="flip">Click to Show/Hide Instructions</div>
+<div id="panel">Create a webpage containing a form and an Ajax script that will receive data sent from the server. The form should contain four input text boxes, for Name, Time, Date (day, date format), and Date (mm/dd/yy format). After the user enters their name in the Name text box and then clicks outside this text box, the Ajax script should access three php scripts on the server which will contain the Time, Date (day, date format), and Date (mm/dd/yy format) and return the Time and Date formats into their respective text boxes.
+ <br>
+</div>
+</div>
+
+			<form name="frm">
+				<p>Name:
+					<input type='text' onChange="ajaxFunction();" name='username' />
+					<br /> Time:
+					<input type='text' id='time' size="30" />
+					<br /> Date:
+					<input type='text' id='date' size="30" />
+					<br /> Date:
+					<input type='text' id='date1' size="30" />
+					<br />
+				</p>
+			</form>
+          <br><br>
+    
+<footer class="w3-center w3-black w3-padding-16">
+<p>&copy; 2020 <a href="mailto:kkim76@mail.ccsf.edu?Subject=Sent%20from%20CNIT133-JavaScript">Kyung Bae Kim</a>
+</footer> 
+
+</body>
+</html>

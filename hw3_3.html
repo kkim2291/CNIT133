@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<!-- Homework assignment for CNIT 133, Kyung Bae Kim, 02/17/2018 -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Creating CNIT 133 homepage">
+<title>CNIT 133 Homework Page</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script>
+		$(document).ready(function(){
+    $("#flip").click(function(){
+        $("#panel").slideToggle("slow");
+    });
+});
+	</script>
+
+	<script>
+		function calculator(char)
+		{
+			var intEnable, intTemp, intCelsius, intFahrenheit;
+			intEnable = document.getElementById("temperature").value
+			intTemp = parseInt(intEnable);
+
+			if(isNaN(intEnable))
+			{
+				document.getElementById("result").innerHTML = "<td colspan='2'>Invalid Input.</td>";
+			}
+			else if(char == 'c')
+			{
+				intFahrenheit = fahrenheitConversion(intTemp);
+				document.getElementById("result").innerHTML = "<td colspan='2'>" + intTemp + "°"+"\nCelsius = " + Math.round(intFahrenheit) + "°" +" Fahrenheit</td>";
+			}
+            else if(char == 'f')
+			{
+				intCelsius = celsiusConversion(intTemp);
+				document.getElementById("result").innerHTML = "<td colspan='2'>" + intTemp + "°" + "\nFahrenheit = " + Math.round(intCelsius) + "°" + " Celsius</td>";
+			}
+			
+		}
+        
+        function celsiusConversion(intTemp) //convert celscius
+		{
+			var cels;
+			cels = 5/9 * (intTemp - 32);
+			return cels;
+		}
+
+		function fahrenheitConversion(intTemp) // convert fahrenheit
+		{
+			var fahren;
+			fahren = (9/5 * intTemp) + 32;
+			return fahren;
+		}
+
+	</script>
+<style>
+table {
+	
+	margin-bottom: 20px;
+	border: 1px #250352 solid;
+}
+th,td,tr {
+	padding: 1px;
+	border: 1px #250352 solid;
+   
+}
+input {
+    text-align:right;
+}
+</style>
+</head>
+<body>
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+    <a href="./index.html" class="w3-bar-item w3-button"><b>CNIT 133</b> Kyung Bae Kim</a>    
+        <div class="w3-right w3-hide-small">      
+        <a href="./index.html" class="w3-bar-item w3-button">HW1</a>
+        <a href="./hw2.html" class="w3-bar-item w3-button">HW2</a>
+        <a href="./hw3.html" class="w3-bar-item w3-button">HW3</a>
+        <a href="./hw4.html" class="w3-bar-item w3-button">HW4</a>
+        <a href="./hw5.html" class="w3-bar-item w3-button">HW5</a>
+        <a href="./hw6.html" class="w3-bar-item w3-button">HW6</a>
+        <a href="./hw7.html" class="w3-bar-item w3-button">HW7</a>
+        <a href="./hw8.html" class="w3-bar-item w3-button">HW8</a>      
+    </div>
+  </div>
+</div>
+
+<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+  <img class="w3-image" src="images/wall3.png" alt="CodingIllustration" width="1500">
+  <div class="w3-display-middle w3-margin-top w3-center">
+  </div>
+</header>
+
+  <div class="w3-container w3-padding-32">
+  <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">HW3 - Part 3: Temperature Conversions</h3>
+  <ul> 
+<li><a href="./hw3_1.html">Part 1 - Calculate Final Grade</a></li> 
+<li><a href="./hw3_2.html">Part 2 - Calculate Sales</a></li> 
+<li><a href="./hw3_3.html">Part 3 - Temperature Conversions</a></li> 
+<li><a href="./hw3_4.html">Part 4 - Learn Multiplication</a></li> 
+</ul>
+<div id="flip">Click to Show/Hide Instructions</div>
+<div id="panel">Create a webpage using form text boxes that: <br>
+a) contains the function celsius, that returns the Celsius equivalent of a Fahrenheit temperature, using the calculation: <br>
+C = 5/9 * (F - 32) <br> 
+b) contains the function fahrenheit that returns the Fahrenheit equivalent of a Celsius temperature, using the calculation: <br>
+F = (9/5 * C) + 32 <br>
+c) Use these functions to write a script that enables the user to enter either a Fahrenheit or a Celsius temperature and displays the Celsius or Fahrenheit equivalent. <br>
+</div>
+
+						<form name="frm">
+					<table>
+						<tr>
+							<th colspan="2">Temperature Conversion</th>
+						</tr>
+						<tr>
+							<td style="text-align:center;" >Temperature:</td>
+							<td><input type="text" id="temperature" name="temperature"></td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<input type="button" onclick="calculator('c')" value="Celsius to Fahrenheit">
+                                <input type="button" onclick="calculator('f')" value="Fahrenheit to Celsius">
+							
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								
+ <input type="reset" value="Clear all form">
+<input type="reset" value="Reset Data" onclick="location.reload();">
+							</td>
+						</tr> 
+						<tr id="result">
+                        <td colspan="2"></td>
+                        </tr>
+                       
+					</table>
+                
+				</form>
+		</div>
+		 <footer class="w3-center w3-black w3-padding-16">
+<p>&copy; 2020 <a href="mailto:kkim76@mail.ccsf.edu?Subject=Sent%20from%20CNIT133-JavaScript">Kyung Bae Kim</a>
+</footer> 
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<!-- Homework assignment for CNIT 133, Kyung Bae Kim, 02/19/2018 -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Creating CNIT 133 homepage">
+<title>CNIT 133 Homework Page</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script>
+		$(document).ready(function(){
+    $("#flip").click(function(){
+        $("#panel").slideToggle("slow");
+    });
+});
+	</script>
+	<script>
+		var int1, int2;
+        //blcok code to generate randomnumbers
+		function randomNumber()
+		{
+			int1 = Math.floor((Math.random()*10)); 
+			int2 = Math.floor((Math.random()*10));
+			document.getElementById("question").innerHTML = "<td colspan='2'> What is " + int1 + " x " + int2 + "?</td>"; 
+		}
+
+		function calculate() //declare var and calculate for multipication
+		{	
+			var intAnswer, inputAnswer;
+			intAnswer = int1 * int2;
+			inputAnswer = document.getElementById("answer").value;
+
+			if(isNaN(inputAnswer))
+			{
+				document.getElementById("output").innerHTML = "<td colspan='2'>Invalid Input.</td>";
+				document.getElementById("answer").value = "";
+			}
+			else 
+			{
+				inputAnswer = parseInt(inputAnswer);
+			
+				if (intAnswer == inputAnswer)
+				{
+					document.getElementById("output").innerHTML = "<td colspan='2'>Very good! Hit clear if you wish try again.</td>";
+					document.getElementById("answer").value = "";
+
+					generateNumbers();
+				}
+				else 
+				{
+					document.getElementById("output").innerHTML = "<td colspan='2'>Incorrect answer.</td>";
+					document.getElementById("answer").value = "";
+				}
+			}
+		}
+	</script>
+    <style>
+table {
+	margin-bottom: 20px;
+	border: 1px #250352 solid;
+}
+th,td,tr {
+	padding: 1px;
+	border: 1px #250352 solid;
+}
+input {
+    text-align:right;
+}
+</style>
+</head>
+<body onload="randomNumber()">
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+    <a href="./index.html" class="w3-bar-item w3-button"><b>CNIT 133</b> Kyung Bae Kim</a>    
+        <div class="w3-right w3-hide-small">      
+        <a href="./index.html" class="w3-bar-item w3-button">HW1</a>
+        <a href="./hw2.html" class="w3-bar-item w3-button">HW2</a>
+        <a href="./hw3.html" class="w3-bar-item w3-button">HW3</a>
+        <a href="./hw4.html" class="w3-bar-item w3-button">HW4</a>
+        <a href="./hw5.html" class="w3-bar-item w3-button">HW5</a>
+        <a href="./hw6.html" class="w3-bar-item w3-button">HW6</a>
+        <a href="./hw7.html" class="w3-bar-item w3-button">HW7</a>
+        <a href="./hw8.html" class="w3-bar-item w3-button">HW8</a>      
+    </div>
+  </div>
+</div>
+
+<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+  <img class="w3-image" src="images/wall3.png" alt="CodingIllustration" width="1500">
+  <div class="w3-display-middle w3-margin-top w3-center">
+  </div>
+</header>
+
+  <div class="w3-container w3-padding-32">
+  <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">HW3 - Part 4: Learn Multiplication</h3>
+  <ul> 
+<li><a href="./hw3_1.html">Part 1 - Calculate Final Grade</a></li> 
+<li><a href="./hw3_2.html">Part 2 - Calculate Sales</a></li> 
+<li><a href="./hw3_3.html">Part 3 - Temperature Conversions</a></li> 
+<li><a href="./hw3_4.html">Part 4 - Learn Multiplication</a></li> 
+</ul>
+</div>
+
+<div id="flip">Click to Show/Hide Instructions</div>
+<div id="panel">Computers are playing an increasing role in education. Write a program that will help an elementary school student learn multiplication. Use Math.random to produce two one-digit integers (0-9). It should then display a question such as:<br><br>
+How much is 6 times 7?<br><br>
+The student then types the answer into a text field. Your program checks the student's answer. If it is correct, display the string "Very good!" in an alert or directly on the page, and then prompt the user to see whether they wish to continue by using the confirm statement. If true, then generate a new question. If not, then exit the script.
+<br><br> 
+If the answer to the multiplication question is wrong, display the string "No. Please try again." in an alert or directly on the page, and let the student try the same question again repeatedly until the student finally gets it right. A separate function should be used to generate each new question. This function should be called once when the script begins execution and each time the user answers the question correctly. Note that whether the answer is correct or not, you should clear the answer box after the question is answered.<br><br>
+</div>
+			<form id="frm">
+				<table>
+					<tr id="question">
+                    <td colspan="2"></td>
+                    </tr>
+					<tr>
+						<td>Your answer:</td>
+						<td><input type="text" id="answer"></td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<input type="button" onclick="calculate()" value="Submit">
+                            <input type="reset" value="Clear" onclick="location.reload();">
+						</td>
+					</tr>
+					<tr id="output">
+                    <td colspan="2"></td>
+                    </tr>
+				</table>
+			</form>
+             <footer class="w3-center w3-black w3-padding-16">
+<p>&copy; 2020 <a href="mailto:kkim76@mail.ccsf.edu?Subject=Sent%20from%20CNIT133-JavaScript">Kyung Bae Kim</a>
+</footer> 			
+</body>
+</html>

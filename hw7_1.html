@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<!-- Homework assignment for CNIT 133, Kyung Bae Kim, 05/01/2018 -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Creating CNIT 133 homepage">
+<title>CNIT 133 Homework Page</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
+    
+    <style>
+        #result { 
+    text-align: center;
+}
+    
+        table{
+            border: solid 1px;
+            margin-right: auto;
+            margin-left: auto;
+            text-align: left;
+        }
+       
+    </style>
+<script>
+$(document).ready(function () {
+
+	$("#black_radio").click(function () {
+		$("#result").css({
+			"background-color": "#000000",
+			"color": "#FFFFFF",
+		});
+	});
+
+	$("#orange_radio").click(function () {
+		$("#result").css({
+			"background-color": "#FF5733",
+			"color": "#21618C"
+		});
+	});
+
+
+	$("#yellow_radio").click(function () {
+		$("#result").css({
+			"background-color": "#F1C40F",
+			"color": "#000000"
+		});
+	});
+
+
+	$("#grey_radio").click(function () {
+		$("#result").css({
+			"background-color": "#696969",
+			"color": "#392509"
+		});
+	});
+
+	$("#font01").click(function () {
+		$("#result").css({
+			"font-family": "Roboto"
+		});
+	});
+
+
+	$("#font02").click(function () {
+		$("#result").css({
+			"font-family": "Oswald"
+		});
+	});
+
+
+	$("#font03").click(function () {
+		$("#result").css({
+			"font-family": "Lato"
+		});
+	});
+
+	$("#font04").click(function () {
+		$("#result").css({
+			"font-family": "Rajdhani"
+		});
+	});
+
+
+
+	$("#fontSize").change(function () {
+		$("#result").css($(this).attr("name"), $(this).val());
+	});
+
+
+	
+	$("#fontStyle").change(function () {
+		$("#result").css($(this).attr("name"), $(this).val());
+	});
+
+	$("#fontWeight").change(function () {
+		$("#result").css($(this).attr("name"), $(this).val());
+	});
+
+
+	$('#reset').click(function () {
+		$("#fontSize").val(""); // Selects the font-size that has a value of ""
+		location.reload();
+	});
+
+});
+
+</script>
+
+	<script>
+		$(document).ready(function(){
+    $("#flip").click(function(){
+        $("#panel").slideToggle("slow");
+    });
+});
+	</script>
+
+</head>
+    
+<body>
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+    <a href="./index.html" class="w3-bar-item w3-button"><b>CNIT 133</b> Kyung Bae Kim</a>    
+        <div class="w3-right w3-hide-small">      
+        <a href="./index.html" class="w3-bar-item w3-button">HW1</a>
+        <a href="./hw2.html" class="w3-bar-item w3-button">HW2</a>
+        <a href="./hw3.html" class="w3-bar-item w3-button">HW3</a>
+        <a href="./hw4.html" class="w3-bar-item w3-button">HW4</a>
+        <a href="./hw5.html" class="w3-bar-item w3-button">HW5</a>
+        <a href="./hw6.html" class="w3-bar-item w3-button">HW6</a>
+        <a href="./hw7.html" class="w3-bar-item w3-button">HW7</a>
+        <a href="./hw8.html" class="w3-bar-item w3-button">HW8</a>      
+    </div>
+  </div>
+</div>
+
+<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+  <img class="w3-image" src="images/wall7.png" alt="CodingIllustration" width="1500">
+  <div class="w3-display-middle w3-margin-top w3-center"> </div>
+</header>
+
+  <div class="w3-container w3-padding-32">
+  <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">HW7 - Part 1: Page layout and formatting </h3>
+  <ul> 
+<li><a href="./hw7_1.html">Part 1 - Page layout and formatting</a></li> 
+<li><a href="./hw7_2.html">Part 2 - Top Navigation Bar</a></li> 
+<li><a href="./hw7_3.html">Part 3 - Photo Slide-show Using jQuery</a></li> 
+</ul>
+<div id="flip">Click to Show/Hide Instructions</div>
+<div id="panel">Create a webpage in which users are allowed to select a page layout and formatting through the use of the className property. Choose at least three form elements from among radio buttons, select items, checkboxes, and buttons to allow the user to change the background color, font size, font family, font style, and font weight. You may use JavaScript or jQuery for this.
+ <br>
+</div>
+</div>
+
+			<form name="frm">
+				<div id="result">
+					April is the cruellest month, breeding<br>
+					Lilacs out of the dead land, mixing<br>
+					Memory and desire, stirring<br>
+					Dull roots with spring rain.<br>
+				</div>
+				<br>
+                
+				<table>
+
+					<tr>
+						<td colspan="4">
+							<p>Choose background and text colors:</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+								<input type="radio" name="style" id="black_radio">Color A
+						</td>
+						<td>
+								<input type="radio" name="style" id="orange_radio">Color B
+
+						</td>
+
+						<td>
+								<input type="radio" name="style" id="yellow_radio">Color C
+
+						</td>
+
+						<td>
+								<input type="radio" name="style" id="grey_radio">Color D
+					
+						</td>
+					</tr>
+
+					<tr>
+						<td colspan="4">
+							<p>Typeface:</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="button" value="Roboto" id="font01">
+						</td>
+						<td>
+							<input type="button" value="Oswald" id="font02">
+						</td>
+						<td>
+							<input type="button" value="Lato" id="font03">
+						</td>
+						<td>
+							<input type="button" value="Rajdhani" id="font04">
+						</td>
+					</tr>
+                    
+					<tr>
+						<td colspan="4">
+							<p>Font size/style/weight:</p>
+						</td>
+					</tr>
+
+						<tr>	
+                        <td>
+								<label>Change Font Size:</label>
+
+								<select name="fontSize" id="fontSize">
+
+									<option value="" selected>Choose one of the following</option>
+
+									<option value="14px">14px</option>
+									<option value="18px">18px</option>
+									<option value="24px">24px</option>
+                                    <option value="36px">36px</option>
+								</select>
+							</td>
+
+							<td>
+
+								<label>Change Font Style:</label>
+
+								<select name="fontStyle" id="fontStyle">
+
+									<option value="" selected>Choose one of the following</option>
+
+									<option value="normal">Normal</option>
+									<option value="italic">Italic</option>
+									<option value="oblique">Oblique</option>
+                                    <option value="initial">Initial</option>
+								</select>
+
+							</td>
+							<td>
+
+								<label>Change Font Weight:</label>
+
+								<select name="fontWeight" id="fontWeight">
+
+									<option value="" selected>Choose one of the following</option>
+
+									<option value="normal">Normal</option>
+									<option value="lighter">Lighter</option>
+									<option value="bold">Bold</option>
+									<option value="bolder">Bolder</option>
+								</select>
+
+							</td>
+                            <td>
+                            </td>
+						</tr>
+  
+                            <tr>
+								<td colspan="4">
+									<p>Clear the every settings:</p>
+								</td>
+                    </tr>
+                    <tr>
+								<td colspan="4">
+									<input type="button" value="Reset" id="reset">
+								</td>
+			
+							</tr>
+
+				</table>
+			</form>
+          <br><br>
+    
+<footer class="w3-center w3-black w3-padding-16">
+<p>&copy; 2020 <a href="mailto:kkim76@mail.ccsf.edu?Subject=Sent%20from%20CNIT133-JavaScript">Kyung Bae Kim</a>
+</footer> 
+
+</body>
+</html>

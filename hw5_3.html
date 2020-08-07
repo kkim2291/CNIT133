@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<!-- Homework assignment for CNIT 133, Kyung Bae Kim, 04/07/2018 -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Creating CNIT 133 homepage">
+<title>CNIT 133 Homework Page</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script>
+		$(document).ready(function(){
+    $("#flip").click(function(){
+        $("#panel").slideToggle("slow");
+    });
+});
+    </script>
+
+<script>
+var array = [["AL", "ALABAMA", "Montgomery", "4,779,736"],                     
+                ["AK", "ALASKA", "Juneau", "710,231"],  
+                ["AZ", "ARIZONA", "Phoenix", "6,392,017"],
+                ["AR", "ARKANSAS", "Little Rock", "2,915,918"],
+				["CA",	"CALIFORNIA", "Sacramento", "37,253,956"],
+				["CO", "COLORADO", "Denver", "5,029,196"]];    
+
+function censusEstimator()
+{   
+    var intSearch = document.forms["frm"].elements["state"].value;  
+    intSearch = intSearch.toUpperCase();  
+    
+    var found = false;
+    for (var row = 0; row < array.length; row++) 
+     {
+	
+     if ((array[row][0] == intSearch) || (array[row][1] == intSearch)){ 
+    document.forms["frm"].elements["name"].value = array[row][1];
+    document.forms["frm"].elements["capital"].value = array[row][2];  
+	document.forms["frm"].elements["population"].value = array[row][3];  
+       row = array.length;  
+       found = true;
+     }    
+  }
+    
+  if ( found == false ) {
+   document.forms["frm"].elements["display"].value= "Invalid Input"; 
+       }
+}
+
+
+    function resetAll(){
+document.frm.reset();
+}  
+</script>
+    
+<style>
+form {
+    text-align:center;
+    }
+table.center {
+margin: auto; 
+border: 1px #250352 solid;
+}
+th,td,tr {
+	padding: 1px;
+	border: 1px #250352 solid;
+     text-align:center;
+   
+}
+</style>    
+
+</head>
+    <body>
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+    <a href="./index.html" class="w3-bar-item w3-button"><b>CNIT 133</b> Kyung Bae Kim</a>    
+        <div class="w3-right w3-hide-small">      
+        <a href="./index.html" class="w3-bar-item w3-button">HW1</a>
+        <a href="./hw2.html" class="w3-bar-item w3-button">HW2</a>
+        <a href="./hw3.html" class="w3-bar-item w3-button">HW3</a>
+        <a href="./hw4.html" class="w3-bar-item w3-button">HW4</a>
+        <a href="./hw5.html" class="w3-bar-item w3-button">HW5</a>
+        <a href="./hw6.html" class="w3-bar-item w3-button">HW6</a>
+        <a href="./hw7.html" class="w3-bar-item w3-button">HW7</a>
+        <a href="./hw8.html" class="w3-bar-item w3-button">HW8</a>      
+    </div>
+  </div>
+</div>
+
+<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+  <img class="w3-image" src="images/wall5.png" alt="CodingIllustration" width="1500">
+  <div class="w3-display-middle w3-margin-top w3-center">
+  </div>
+</header>
+
+  <div class="w3-container w3-padding-32">
+  <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">HW5 - Part 2: Creating Pulldown Menus</h3>
+  <ul> 
+<li><a href="./hw5_1.html">Part 1 - Validating Form</a></li> 
+<li><a href="./hw5_2.html">Part 2 - Creating Pulldown Menus</a></li> 
+<li><a href="./hw5_3.html">Part 3 - Displaying Census Information</a></li> 
+</ul>
+<div id="flip">Click to Show/Hide Instructions</div>
+<div id="panel">Given the following table of data about several of our states from the 2010 census, create a webpage that enables the user to enter a state name (full or abbreviated) and have the State Name, State Capital, and population appear in separate form text fields of the page. The user should be able to start the script by pressing the button, "State Info". Just use the states that are given in the following table for your array. Allow for the user to enter state info in either lower case or upper case letters. Note that solving this problem involves a two-dimensional array. Make sure you validate the input for a correct state abbreviation or state name. If the input is invalid then display an error message. Utilize jQuery UI for a button that will be used to display the instruction: "Enter a state abbreviation or name (lower or upper case is ok)". 
+ 
+ <br> 
+</div>
+</div>
+
+		<table>
+				<tr>
+					<th>State</th>
+					<th>State Name</th>
+					<th>Capital</th>
+					<th>Population</th>
+				</tr>
+				<tr>
+					<td>AL</td>
+					<td>Alabama</td>
+					<td>Montgomery</td>
+					<td>4,779,736</td>
+				</tr>
+				<tr>
+					<td>AK</td>
+					<td>Alaska</td>
+					<td>Juneau</td>
+					<td>710,231</td>
+
+				</tr>
+				<tr>
+					<td>AZ</td>
+					<td>Arizona</td>
+					<td>Phoenix</td>
+					<td>6,392,017</td>
+				</tr>
+				<tr>
+					<td>AR</td>
+					<td>Arkansas</td>
+					<td>Little Rock</td>
+					<td>2,915,918</td>
+				</tr>
+				<tr>
+					<td>CA</td>
+					<td>California</td>
+					<td>Sacramento</td>
+					<td>37,253,956</td>
+				</tr>
+				<tr>
+					<td>CO</td>
+					<td>Colorado</td>
+					<td>Denver</td>
+					<td>5,029,196</td>
+				</tr>
+			</table>
+			<br>
+
+			<form name="frm">
+
+
+				<input type="text" size="25" name="state" autofocus>
+                <input onclick="censusEstimator();" type="button" value="State Info">
+
+				<br>
+				<br> State:
+
+				<br>
+
+				<input type="text" size="25" name="name" id="name" disabled>
+				<br>
+				<br> State Name:
+				<input type="text" size="25" name="capital" id="capital" disabled>
+				<br>
+				<br> State Population:
+				<input type="text" size="25" name="population" id="population" disabled>
+               <br>
+               <br> Display:
+
+				<br>
+				<input type="text" size="40" name="display" id="display" disabled>
+				<br>
+	
+				<input type="button" value="Clear" onclick="resetAll()">
+
+<br>
+			</form>
+        
+<br>
+		 <footer class="w3-center w3-black w3-padding-16">
+<p>&copy; 2020 <a href="mailto:kkim76@mail.ccsf.edu?Subject=Sent%20from%20CNIT133-JavaScript">Kyung Bae Kim</a>
+</footer> 
+
+
+</body>
+</html>

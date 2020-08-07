@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!-- Homework assignment for CNIT 133, Kyung Bae Kim, 03/11/2018 -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Creating CNIT 133 homepage">
+<title>CNIT 133 Homework Page</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+$(document).ready(function(){
+$("#flip").click(function(){
+$("#panel").slideToggle("slow");
+    });
+});
+	</script>
+<script>
+$( function() {
+ $( "#draggable" ).draggable();
+ } );
+ </script>
+
+<script>
+		function forLoop(){
+			var product = 1;
+			var sum = 0;
+			for (var int = 5; int <= 20; int += 3){
+				product *= int;
+			}
+			for (var int = 5; int <= 20; int += 3){
+				sum += int;
+			}
+			document.getElementById("output1").innerHTML = "The product for every third integer from 5 to 20: " + product + "."; 
+			document.getElementById("output2").innerHTML = "The sum of every third integer from 5 to 20: " + sum + "."; 
+		}
+		function whileLoop(){
+			var product = 1;
+			var sum = 0;
+			var int = 3;
+			while (int <=31){
+				product *= int;
+				int += 4;
+			}
+			int = 3;
+			while (int <=31){
+				sum += int;
+				int += 4;
+			}	
+			document.getElementById("output3").innerHTML = "The product for every fourth integer from 3 to 31: " + product + "."; 
+			document.getElementById("output4").innerHTML = "The sum for every fourth integer from 3 to 31: " + sum + ".";		
+		}
+	</script>
+<style>
+  #draggable { width: 150px; height: 150px; padding: 0.5em; background-color: coral; }
+</style>  
+</head>
+
+<body onload="forLoop(); whileLoop()">
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+    <a href="./index.html" class="w3-bar-item w3-button"><b>CNIT 133</b> Kyung Bae Kim</a>    
+        <div class="w3-right w3-hide-small">      
+        <a href="./index.html" class="w3-bar-item w3-button">HW1</a>
+        <a href="./hw2.html" class="w3-bar-item w3-button">HW2</a>
+        <a href="./hw3.html" class="w3-bar-item w3-button">HW3</a>
+        <a href="./hw4.html" class="w3-bar-item w3-button">HW4</a>
+        <a href="./hw5.html" class="w3-bar-item w3-button">HW5</a>
+        <a href="./hw6.html" class="w3-bar-item w3-button">HW6</a>
+        <a href="./hw7.html" class="w3-bar-item w3-button">HW7</a>
+        <a href="./hw8.html" class="w3-bar-item w3-button">HW8</a>      
+    </div>
+  </div>
+</div>
+
+<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+  <img class="w3-image" src="images/wall4.png" alt="CodingIllustration" width="1500">
+  <div class="w3-display-middle w3-margin-top w3-center">
+  </div>
+</header>
+
+  <div class="w3-container w3-padding-32">
+  <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">HW4 - Part 1: Product and Sum of Integers</h3>
+  <ul> 
+<li><a href="./hw4_1.html">Part 1 - Product and Sum of Integers</a></li> 
+<li><a href="./hw4_2.html">Part 2 - Compounded Interest</a></li> 
+<li><a href="./hw4_3.html">Part 3 - Mail Order Information</a></li> 
+<li><a href="./hw4_4.html">Extra Credit- Display Square</a></li> 
+</ul>
+</div>
+<div id="flip">Click to Show/Hide Instructions</div>
+<div id="panel">Part 1a: Create a webpage that contains a script, using the for statement, that calculates the product and sum of every third integer from 5 to 20 inclusive and then displays the results, along with some accompanying text.
+<br><br>
+(Note: You should print a line that contains the result of 5 * 8 * 11 * 14 * 17 * 20 and a second line that contains the result of 5 + 8 + 11 + 14 + 17 + 20). 
+<br><br>
+Part 1b: On the same webpage as Part 1b, create a script, using the while or do while statement, that calculates the product and sum of every fourth integer from 3 to 31 inclusive and then displays the results, along with some accompanying text.
+<br><br>
+(Note: You should print a line that contains the result of 3 * 7 * 11 * 15 * 19 * 23 * 27 * 31 and a second line that contains the result of 3 + 7 + 11 + 15 + 19 + 23 + 27 + 31). <br><br>
+Use jQuery UI to allow the user to drag an element to a specific area of the page - can be any type of element. 
+</div>
+
+<div id="draggable" class="ui-widget-content">
+<p>Drag me around</p>
+</div>						
+    <p id="output1"></p>
+    <p id="output2"></p>
+    <p id="output3"></p>
+    <p id="output4"></p>
+	
+		<footer class="w3-center w3-black w3-padding-16">
+<p>&copy; 2020 <a href="mailto:kkim76@mail.ccsf.edu?Subject=Sent%20from%20CNIT133-JavaScript">Kyung Bae Kim</a>
+</footer> 
+</body>
+</html>

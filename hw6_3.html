@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!-- Homework assignment for CNIT 133, Kyung Bae Kim, 04/19/2018 -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Creating CNIT 133 homepage">
+<title>CNIT 133 Homework Page</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script>
+		$(document).ready(function(){
+    $("#flip").click(function(){
+        $("#panel").slideToggle("slow");
+    });
+});
+	</script>
+
+	<script>
+		function dates()
+		{
+			var s1 = new Date();
+
+			document.getElementById("date1").innerHTML = s1.toString();
+			document.getElementById("date2").innerHTML = s1.toLocaleString();
+			document.getElementById("date3").innerHTML = s1.toUTCString();
+			document.getElementById("timeDifference").innerHTML = "The difference between EST and UTC: " + (s1.getTimezoneOffset()/60 - 3) + " hours.";
+		}
+
+		function phoneNumbers()
+		{
+			var phoneNumber = document.getElementById("phone").value;
+			var phoneRegExp = /^(\(\d{3}\))(\s)(\d{3})(-\d{4})$/;
+			var phoneParts;
+			var errorMsg = "The format must be (###) ###-####";
+
+			if(!phoneRegExp.test(phoneNumber))
+			{
+				document.getElementById("errorMsg").innerHTML = errorMsg;
+			}
+			else 
+			{
+				document.getElementById("errorMsg").innerHTML = "";
+
+				phoneParts = phoneNumber.split(/[\(\)\s-]/);
+
+				document.getElementById("areaCode").innerHTML = phoneParts[1];
+				document.getElementById("firstPart").innerHTML = phoneParts[3];
+				document.getElementById("lastPart").innerHTML = phoneParts[4];
+			}
+		}
+         function resetAll(){
+document.frm.reset();
+}  
+	</script>
+ <style>
+    form { 
+margin: 0 auto; 
+width:250px;
+}
+
+</style>
+</head>
+<body onload="dates();" >
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+    <a href="./index.html" class="w3-bar-item w3-button"><b>CNIT 133</b> Kyung Bae Kim</a>    
+        <div class="w3-right w3-hide-small">      
+        <a href="./index.html" class="w3-bar-item w3-button">HW1</a>
+        <a href="./hw2.html" class="w3-bar-item w3-button">HW2</a>
+        <a href="./hw3.html" class="w3-bar-item w3-button">HW3</a>
+        <a href="./hw4.html" class="w3-bar-item w3-button">HW4</a>
+        <a href="./hw5.html" class="w3-bar-item w3-button">HW5</a>
+        <a href="./hw6.html" class="w3-bar-item w3-button">HW6</a>
+        <a href="./hw7.html" class="w3-bar-item w3-button">HW7</a>
+        <a href="./hw8.html" class="w3-bar-item w3-button">HW8</a>      
+    </div>
+  </div>
+</div>
+
+<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+  <img class="w3-image" src="images/wall6.png" alt="CodingIllustration" width="1500">
+  <div class="w3-display-middle w3-margin-top w3-center"> </div>
+</header>
+
+  <div class="w3-container w3-padding-32">
+  <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">HW6 - Part 3: Time and Telephone number</h3>
+  <ul> 
+<li><a href="./hw6_1.html">Part 1 - Math Method</a></li> 
+<li><a href="./hw6_2.html">Part 2 - String and charAt Method</a></li> 
+<li><a href="./hw6_3.html">Part 3 - Time and Telephone number</a></li> 
+</ul>
+<div id="flip">Click to Show/Hide Instructions</div>
+<div id="panel">1) Using toString(), toLocaleString() and toUTCString() for the Date object, write the current date and time in these 3 formats. Using the getTimezoneOffset(), write the hours difference between PST or PDT (Pacific Standard Time or Pacific Daylight Time) and UTC, and the hours difference between EST or EDT (Eastern Standard Time or Eastern Daylight Time) and UTC. Note: EST is 3 hours ahead of PST (Pacific Standard Time). 
+ <br> <br>
+ 2) Input a telephone number as a string in the format (999) 999-9999. The script should use String method split to extract the area code as a token, the first 3 digits of the phone number as a token, and the last 4 digits of the phone number as a token. Display the area code in one text field and the seven-digit phone number in another text field.
+</div>
+</div>
+
+			<form name="frm">
+            <h5>1) The current date and time in these 3 formats</h5>
+				<p>toString():<br></p>
+					<textarea id="date1"></textarea><br>
+					<p>toLocaleString():<br></p>
+					<textarea id="date2"></textarea><br>
+					<p>toUTCString():<br></p>
+					<textarea id="date3"></textarea><br>
+                    <p>Time difference:<br></p>
+					<textarea id="timeDifference"></textarea><br><br>
+				
+                <h5>2) The telephone number by using string method</h5>
+						<p>Type the telephone number [(###) ###-####]:<p>
+					    
+						<input type="text" id="phone"><br>
+					
+							<input type="button" value="Calculate" onclick="phoneNumbers();">
+							<input type="button" value="Clear" onclick="resetAll()"> <br><br>
+				
+						Area Code: 
+						<textarea id="areaCode"></textarea><br>
+				
+						First Part: 
+						<textarea id="firstPart"></textarea><br>
+					
+						Last Part: 
+						<textarea id="lastPart"></textarea><br>
+					    <textarea id="errorMsg"></textarea>
+		
+			</form>
+
+     <br><br>
+    
+<footer class="w3-center w3-black w3-padding-16">
+<p>&copy; 2020 <a href="mailto:kkim76@mail.ccsf.edu?Subject=Sent%20from%20CNIT133-JavaScript">Kyung Bae Kim</a>
+</footer> 
+
+</body>
+</html>
